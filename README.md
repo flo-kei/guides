@@ -1,4 +1,4 @@
-# guides
+# Technology guides
 
 This repository contains guides on technologies I have experimented with.
 
@@ -7,4 +7,5 @@ don't hesitate to contact me via email: z06zuupqy@relay.firefox.com.
 
 Have fun experimenting and stay curious!
 
+## Guides:
 [Wireguard](wireguard)
