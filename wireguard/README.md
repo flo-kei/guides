@@ -79,3 +79,6 @@ Close connection:
 ```
 wg-quick down wg0
 ```
+
+I also wrote a small script to make opening and closing the connection easier:
+[vpn](./vpn)

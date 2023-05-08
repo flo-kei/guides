@@ -1,0 +1,22 @@
+#!/bin/bash
+
+wg_show_output=$(sudo wg show); # get vpn status
+output_len=${#wg_show_output} # get length of command output
+output_len="${output_len//[$'\t\r\n ']}" # get rid of string artifacts
+
+if [ "$1" = "up" ] || [ "$1" = "enable" ] || [ "$1" = "start" ] || [ "$1" = "on" ]; then
+	if [[ output_len -gt 0 ]]; then
+		echo "VPN is already connected!"
+	else
+		sudo wg-quick up wg0
+	fi
+elif [ "$1" = "down" ] || [ "$1" = "disable" ] || [ "$1" = "stop" ] || [ "$1" = "off" ]; then
+	if [[ output_len -eq 0 ]]; then
+		echo "VPN is already stopped!"
+	else
+    	sudo wg-quick down wg0
+	fi
+else
+    echo "Invalid parameter. Usage: $0 {(up|enable|start|on)|(down|disable|stop|off)}"
+fi
+
